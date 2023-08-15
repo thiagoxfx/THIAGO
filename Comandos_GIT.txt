@@ -93,7 +93,7 @@ a branch Main. ##
 
 ##################
 
-1 - sempre puxar do git as atualizações com o pull
+1 - puxar do git as atualizações com o pull
 2 - apos alterações adicionar para a area de preparação com o add . ou add nome_arquivo
 3 - Comitar com alguma mensagem
 3 - subir as alterações com o push
