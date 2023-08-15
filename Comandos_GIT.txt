@@ -1,0 +1,99 @@
+"""
+RESUMO DE COMO TRABALHAR COM GIT, GITHUB:
+1 - git pull da branch principal
+2 - gerar uma Nova branch a partir da branch principal
+3 = Trabalhar e adicionar novas funcionalidads na nova branch que criou
+4 - Finalizar o trabalho na branch temporária
+5 - Git checkout para a branch principal
+6 - Git pull
+7 - Mergiar(unir) o codigo da branch temporária com a branch principal(depois de testar)
+8 - Git push da branch principal para a nuvem
+"""
+
+
+# criar repositorio git. É usado apenas uma vez. Para saber se foi criado basta verificar se existe uma pasta .git
+git init 
+
+## STATUS - mostra o status do diretorio que ESTOU Apenas. Em cada diretorio posso ter status diferentes
+git status
+
+## Adicionar arquivos ou diretorios para o GIT Ignorar (inicio de projeto)
+criar um arquivo .gitignore
+inserir o nome dos arquivos e/ou diretorios
+Salvar e submeter add/commit/push
+
+# Adiciona todos os arquivos para a area de preparação # Adiciona na area STAGE
+git add .   # ou git add nomeArquivo
+# Refazer/retirar o arquivo/s da area STAGE:
+git reset HEAD arquivo
+
+##COMMIT - adicionar sempre uma mensagem
+git commit -m "Primeiro Commit"
+## Refazer um commit- nao exclui o commit anterior, refaz. Exemplo:
+$ git commit -m 'initial commit'
+$ git add forgotten_file
+$ git commit --amend
+
+## Cria uma conexão entre o diretorio local e o repositorio remoto (criar repositorio antes)
+git remote add origin https://github.com/thiagoxfx/Project_Adonai.git
+# Caso se arrependa ou erre, basta remover:
+git remote remove origin
+
+
+## Subir os arquivos para o Repositorio remoto (Push no branch MAIN)
+git push origin main    
+
+## Criar branch
+git branch nome
+
+# verifica todas as branchs criadas
+git branch
+
+# entrar na branch
+git checkout nome
+
+# ver quantos commits na branch
+git log
+
+## Excluir uma Branch remoto
+git push origin --delete nome_da_branch
+## Excluir uma Branch local
+git branch -d nome_da_branch
+## depois pode-se sincronizar as nome_da_branches
+git fetch -p
+
+# Trazer alterações feitas no repositorio github para repositorio local 
+git pull origin main
+
+# Visualizar historico das versoes
+git reflog
+
+# Voltar/Avançar a uma vesão anterior/posterior (precisa pegar o codigo da versao no comando anterior)
+git reset --hard codigodoarquivo
+
+## Voltar um arquivo ao seu estado anterior - CUIDADO - Tipo...quero voltar o arquivo ao original de quando comecei a mexer hoje (ultimo push)
+git checkout -- arquivo
+
+
+## gerar uma Nova branch a partir da branch principal
+git checkout -b nome_da_branch_nova nome_da_branch_a_ser_copiada
+
+## Unir modificações entre as branchs - MERGE
+##0 - Antes de rodar o merge, entre na branch principal que iŕa receber as atualizacoes e rode o pull para ter certeza que esta atualizado conforme repositorio github
+git pull origin main
+##2 - comando será: git merge 'nome da branch que puxaremos as atualizações'
+git merge nome_da_branch
+##3 - executar o git push para subir para o github
+git push origin main
+
+## PULL REQUEST
+No caso anterior foi mergiado diretamente por aq. Em situações de equipe a nova atualização do software será
+enviada para a mesma branch temporária e alguem responsavel irá no github aprovar ou nao a revisao e Mergiar por lá com 
+a branch Main. ## 
+
+##################
+
+1 - sempre puxar do git as atualizações com o pull
+2 - apos alterações adicionar para a area de preparação com o add . ou add nome_arquivo
+3 - Comitar com alguma mensagem
+3 - subir as alterações com o push
